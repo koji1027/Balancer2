@@ -74,27 +74,3 @@ int main(void) {
         Wait(1000);               // ボタンを押した振動が収まるまで待つ
     }
 }
-
-/*
- * LEDの点滅制御関数
- * light　		点灯させるLED
- * blink		点滅させるLED
- * cycle		点滅周期(msec）
- * callcycle	関数の呼ばれる周波数（Hz)
- */
-void LedBlink(unsigned char light,unsigned char blink , int msec,int callcycle){
-	static int cnt = 0;
-	volatile int c = (msec * callcycle/1000);
-	cnt ++;
-
-	if(cnt <  c/2){
-		setLED(light | blink);
-	}
-	else{
-		setLED(light);
-	}
-	if(cnt > c){
-		cnt = 0;
-	}
-}
-

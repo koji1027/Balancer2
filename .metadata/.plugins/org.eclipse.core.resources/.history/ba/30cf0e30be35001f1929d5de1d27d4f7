@@ -1,7 +1,7 @@
 #include "Balancer2.h"
 
 volatile static double Tspd_L_i = 0.0, Tspd_R_i = 0.0;  // 移動速度積分用変数
-volatile static double target_angle = 15.0 / 180.0 * 3.14159265;              // 目標角度
+volatile static double target_angle = 0.0;              // 目標角度
 /*
  * 制御用編雨数の初期化
  */

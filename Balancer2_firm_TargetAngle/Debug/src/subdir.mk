@@ -23,7 +23,7 @@ C_DEPS += \
 src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU C Compiler'
-	arm-none-eabi-gcc -D__USE_CMSIS=Balancer2_lib -DDEBUG -D__CODE_RED -D__REDLIB__ -I"/Users/koji/LPCXpresso/Balancer2/Balancer2_firm_TargetAngle/lib" -I"/Users/koji/LPCXpresso/Balancer2/Balancer2_firm_TargetAngle/inc" -O1 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	arm-none-eabi-gcc -D__USE_CMSIS=Balancer2_lib -DDEBUG -D__CODE_RED -D__REDLIB__ -I"Y:/LPCXpresso/Balancer2/Balancer2_firm_TargetAngle/lib" -I"Y:/LPCXpresso/Balancer2/Balancer2_firm_TargetAngle/inc" -O1 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

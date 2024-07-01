@@ -16,6 +16,30 @@
 						<entry kind="macro" name="__REDLIB__" value=""/>
 						<entry kind="macro" name="__USE_CMSIS" value="Balancer2_lib"/>
 					</resource>
+					<resource project-relative-path="src/main.c">
+						<entry kind="includePath" name="/${ProjName}/lib">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/inc">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="Balancer2_lib"/>
+					</resource>
+					<resource project-relative-path="src/cr_startup_lpc13.c">
+						<entry kind="includePath" name="/${ProjName}/lib">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/${ProjName}/inc">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="macro" name="DEBUG" value=""/>
+						<entry kind="macro" name="__CODE_RED" value=""/>
+						<entry kind="macro" name="__REDLIB__" value=""/>
+						<entry kind="macro" name="__USE_CMSIS" value="Balancer2_lib"/>
+					</resource>
 				</language>
 			</provider>
 		</extension>
