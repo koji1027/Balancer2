@@ -1,6 +1,7 @@
 #include "Balancer2.h"
 
 volatile static double Tspd_L_i = 0.0,Tspd_R_i = 0.0;	//移動速度積分用変数
+volatile static double target_angle = 0.0;
 
 /*
  * 制御用編雨数の初期化
@@ -63,10 +64,11 @@ void Control(){
 	volatile double wheel_L_angle,wheel_R_angle;
 	volatile double wheel_L_angular_spd,wheel_R_angular_spd;
 	volatile double outL = 0.0,outR = 0.0;
+	volatile double error_angle = memmap.values.BODY_ANGLE - target_angle;
 
 	//本体角度フィードバック
-	outL += memmap.values.GAIN_BODY * memmap.values.GAIN_BODY_ANGLE * memmap.values.BODY_ANGLE;
-	outR += memmap.values.GAIN_BODY * memmap.values.GAIN_BODY_ANGLE * memmap.values.BODY_ANGLE;
+	outL += memmap.values.GAIN_BODY * memmap.values.GAIN_BODY_ANGLE * error_angle;
+	outR += memmap.values.GAIN_BODY * memmap.values.GAIN_BODY_ANGLE * error_angle;
 
 	//本体角速度フィードバック
 	outL += memmap.values.GAIN_BODY * memmap.values.GAIN_BODY_ANGULAR_SPD * memmap.values.BODY_ANGULAR_SPD;
@@ -83,12 +85,12 @@ void Control(){
 	wheel_R_angular_spd = memmap.values.WHEEL_ANGULAR_SPD_R - (memmap.values.T_SPD_R/MAIN_CYCLE);
 
 	//ホイール角度フィードバック
-	outL += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGLE * wheel_L_angle;
-	outR += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGLE * wheel_R_angle;
+	//outL += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGLE * wheel_L_angle;
+	//outR += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGLE * wheel_R_angle;
 
 	//ホイール角速度フィードバック
-	outL += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGULAR_SPD * wheel_L_angular_spd;
-	outR += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGULAR_SPD * wheel_R_angular_spd;
+	//outL += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGULAR_SPD * wheel_L_angular_spd;
+	//outR += memmap.values.GAIN_WHEEL * memmap.values.GAIN_WHEEL_ANGULAR_SPD * wheel_R_angular_spd;
 
 	//左右ホイール間の角度差算出
 	double correlation = wheel_L_angle - wheel_R_angle;
