@@ -29,7 +29,7 @@ all: Balancer2_firm_TargetAngle.axf
 Balancer2_firm_TargetAngle.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"Y:/LPCXpresso/Balancer2/Balancer2_firm_TargetAngle/lib" -Xlinker --gc-sections -Xlinker -Map=Balancer2_firm_TargetAngle.map -mcpu=cortex-m3 -mthumb -T "Balancer2_Debug.ld" -o "Balancer2_firm_TargetAngle.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"/Users/koji/LPCXpresso/Balancer2/Balancer2_firm_TargetAngle/lib" -Xlinker --gc-sections -Xlinker -Map=Balancer2_firm_TargetAngle.map -mcpu=cortex-m3 -mthumb -T "Balancer2_Debug.ld" -o "Balancer2_firm_TargetAngle.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
