@@ -1,3 +1,0 @@
-13:40:55 **** Incremental Build of configuration Debug for project Balancer2_firm_TargetAngle ****
-make -r all 
-src/control.d:1: *** multiple target patterns.  Stop.
